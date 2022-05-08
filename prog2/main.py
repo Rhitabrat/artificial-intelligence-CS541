@@ -3,7 +3,7 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 
-POPULATION_SIZE = 10000
+POPULATION_SIZE = 10
 NUM_OF_ITERATIONS = 10000
 NUM_OF_QUEENS = 8
 
@@ -71,8 +71,8 @@ def ga(arrangements):
             selected_parent_1[crossover_point:]
 
         # do the mutation
-        offspring_1[random.randint(0, 7)] = random.randint(1, 9)
-        offspring_2[random.randint(0, 7)] = random.randint(1, 9)
+        offspring_1[random.randint(0, 7)] = random.randint(1, 8)
+        offspring_2[random.randint(0, 7)] = random.randint(1, 8)
 
         arrangements[best_parent_indices[0]] = offspring_1
         arrangements[best_parent_indices[1]] = offspring_2
@@ -81,12 +81,15 @@ def ga(arrangements):
         
         if best_fitness==28:
             print("Solution found at i =", i)
-            # print(arrangements)
-            # break
+            print(arrangements)
+            break
 
     return best_fitnesses
 
 
+print("Initial")
+print(arrangements)
+print("Final")
 fitnesses = ga(arrangements)
 # print(fitnesses)
 
